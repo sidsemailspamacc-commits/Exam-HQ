@@ -1,86 +1,143 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#050505">
-<title>Roadmap Clock · Exam HQ 2027</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#050505"><title>Exam HQ · Schedule Clock</title>
 <style>
-:root{color-scheme:dark;--bg:#050505;--panel:#111;--ink:#e7e7e7;--muted:#777;--line:#242424;--accent:#cfcfcf}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
-body{min-height:100svh;display:grid;place-items:center;padding:25px 18px;background:radial-gradient(ellipse at 50% 36%,#131313 0,transparent 56%),#050505}
-main{width:min(100%,700px);text-align:center}.brand{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#666;font-weight:650;margin-bottom:26px}
-.clock{display:flex;justify-content:center;align-items:center;gap:clamp(9px,3vw,20px);width:100%}
-.group{position:relative;display:flex;align-items:center;justify-content:center;width:min(43vw,310px);height:clamp(120px,34vw,210px);background:linear-gradient(180deg,#111 0%,#151515 50%,#111 51%,#101010 100%);border:1px solid #1a1a1a;border-radius:clamp(12px,3vw,20px);box-shadow:0 16px 40px #0009,inset 0 1px #ffffff08;overflow:hidden}
-.group:after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#050505;box-shadow:0 1px #ffffff08}
-.digits{font-size:clamp(82px,24vw,164px);font-weight:760;line-height:.9;letter-spacing:-.08em;font-variant-numeric:tabular-nums;color:#cfcfcf;text-shadow:0 2px 1px #fff2,0 -2px 1px #0008;transform:translateX(-.025em)}
-.colon{font-size:clamp(35px,10vw,68px);font-weight:700;color:#aaa;line-height:1;animation:pulse 1s steps(2,start) infinite}
-@keyframes pulse{to{opacity:.25}}
-.lower{display:flex;align-items:center;justify-content:space-between;max-width:min(88vw,630px);margin:10px auto 0;color:#777;font-size:12px;letter-spacing:.13em;text-transform:uppercase}
-.period{font-weight:750;color:#aaa;letter-spacing:.1em}.zone{font-size:10px;color:#555}
-.next{max-width:590px;margin:clamp(42px,11vh,78px) auto 0;text-align:left;border-top:1px solid #222;padding:21px 4px 0}
-.kicker{font-size:10px;letter-spacing:.19em;text-transform:uppercase;color:#666;font-weight:700}
-.title{font-size:clamp(23px,5vw,36px);letter-spacing:-.035em;line-height:1.15;margin:9px 0 5px;font-weight:650;color:#ededed}
-.detail{font-size:14px;color:#858585}
-.countdown{display:flex;gap:9px;margin-top:20px}
-.unit{min-width:65px;padding:9px 12px;background:#101010;border:1px solid #202020;border-radius:9px;text-align:center}
-.unit b{font-size:22px;line-height:1.15;display:block;font-variant-numeric:tabular-nums;color:#dedede}
-.unit span{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#666}
-.foot{font-size:10px;color:#4d4d4d;margin-top:22px}
-@media(max-width:420px){.clock{gap:8px}.group{height:clamp(105px,34vw,142px);border-radius:12px}.digits{font-size:clamp(78px,23vw,105px)}.countdown{gap:5px}.unit{min-width:0;flex:1;padding:8px 4px}.unit b{font-size:19px}}
-@media(prefers-reduced-motion:reduce){.colon{animation:none}}
+:root{color-scheme:dark;--bg:#050505;--panel:#101010;--line:#252525;--ink:#e7e7e7;--muted:#898989;--soft:#bdbdbd;--green:#a7d7b6;--gold:#e8c98e}
+*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+body{min-height:100dvh}main{height:100dvh;width:100vw;display:grid;grid-template-columns:43% 57%;padding:clamp(14px,3vh,28px) clamp(18px,4vw,56px);gap:clamp(20px,4vw,56px);align-items:center;background:radial-gradient(ellipse at 19% 45%,#141414 0,transparent 44%),#050505}
+.clockside{display:flex;flex-direction:column;justify-content:center;min-width:0}.brand{font-size:clamp(8px,1.2vw,11px);letter-spacing:.22em;text-transform:uppercase;color:#606060;font-weight:700;margin-bottom:clamp(13px,3vh,26px)}
+.clock{display:flex;align-items:center;gap:clamp(5px,1vw,13px)}.group{height:clamp(82px,22vh,190px);flex:1;min-width:0;display:grid;place-items:center;position:relative;background:linear-gradient(#111 0 49.6%,#050505 49.7%,#111 50.3%,#101010 100%);border:1px solid #202020;border-radius:clamp(10px,1.8vw,18px);box-shadow:0 12px 32px #000b,inset 0 1px #ffffff0a;overflow:hidden}.digits{font-size:clamp(58px,12vw,160px);font-weight:780;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.08em;color:#d1d1d1;text-shadow:0 2px 1px #fff2,0 -2px 1px #0009;transform:translateX(-.04em)}.colon{font-size:clamp(24px,5vw,66px);color:#999;font-weight:750;animation:blink 1s steps(2,start) infinite}@keyframes blink{to{opacity:.25}}
+.clockmeta{display:flex;justify-content:space-between;align-items:center;margin-top:9px;color:#696969;font-size:clamp(9px,1.15vw,12px);letter-spacing:.12em;text-transform:uppercase}.period{color:#aaa;font-weight:800}.date{margin-top:clamp(18px,4vh,36px);font-size:clamp(15px,2vw,23px);font-weight:600;letter-spacing:.01em;color:#c7c7c7}.clock-caption{margin-top:3px;color:#5a5a5a;font-size:clamp(9px,1vw,11px)}
+.right{display:flex;flex-direction:column;justify-content:center;gap:clamp(12px,3vh,25px);min-width:0;max-height:100%;overflow:hidden}.block{border:1px solid var(--line);background:linear-gradient(145deg,#111,#0b0b0b);border-radius:clamp(12px,2vw,20px);padding:clamp(14px,3vh,25px) clamp(16px,2.5vw,28px);min-width:0}.label{color:#737373;text-transform:uppercase;letter-spacing:.18em;font-size:clamp(8px,1vw,10px);font-weight:750}.status{display:inline-flex;align-items:center;gap:7px;color:var(--green);font-size:clamp(9px,1.05vw,11px);letter-spacing:.13em;text-transform:uppercase;margin-top:11px}.dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px #a7d7b699}.task{font-size:clamp(21px,3.6vw,42px);font-weight:680;line-height:1.1;letter-spacing:-.035em;margin-top:7px;color:#eee;overflow-wrap:anywhere}.taskdetail{font-size:clamp(10px,1.3vw,14px);color:#858585;margin-top:7px}.nextline{border-top:1px solid #242424;margin-top:clamp(13px,2.6vh,22px);padding-top:clamp(11px,2.4vh,19px);display:flex;justify-content:space-between;align-items:center;gap:10px}.nextlabel{font-size:clamp(8px,1vw,10px);color:#686868;text-transform:uppercase;letter-spacing:.15em}.nexttask{font-size:clamp(12px,1.6vw,17px);font-weight:650;color:#c5c5c5;margin-top:4px}.nexttime{font-size:clamp(11px,1.3vw,14px);color:#888;white-space:nowrap}
+.roadmap{border:1px solid #252525;background:#0c0c0c;border-radius:clamp(12px,2vw,20px);padding:clamp(14px,2.6vh,22px) clamp(16px,2.5vw,28px)}.roadtop{display:flex;justify-content:space-between;gap:10px;align-items:center}.roadbadge{font-size:9px;color:#aaa;border:1px solid #333;border-radius:99px;padding:4px 8px;white-space:nowrap}.roadtitle{font-size:clamp(16px,2.3vw,25px);line-height:1.15;font-weight:650;margin-top:9px;color:#e1e1e1;letter-spacing:-.02em}.roaddetail{font-size:clamp(9px,1.1vw,12px);color:#797979;margin-top:4px}.countdown{display:flex;gap:7px;margin-top:clamp(10px,2vh,16px)}.unit{flex:1;min-width:0;background:#131313;border:1px solid #242424;border-radius:8px;text-align:center;padding:7px 2px}.unit b{font-size:clamp(15px,2.1vw,23px);display:block;line-height:1.12;font-variant-numeric:tabular-nums;color:#ddd}.unit span{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#696969}
+@media(max-height:380px){main{padding-top:9px;padding-bottom:9px;gap:16px}.brand{margin-bottom:9px}.group{height:clamp(75px,28vh,106px)}.date{margin-top:10px}.right{gap:8px}.block,.roadmap{padding:10px 14px}.status{margin-top:5px}.nextline{margin-top:8px;padding-top:7px}.countdown{margin-top:7px}}
+@media (orientation:portrait){main{grid-template-columns:1fr;grid-template-rows:42% 58%;gap:10px;padding:12px 18px}.clockside{align-items:center}.brand{margin-bottom:8px}.clock{width:min(72vw,380px)}.group{height:clamp(65px,15vh,120px)}.digits{font-size:clamp(56px,18vw,95px)}.date{margin-top:9px}.clock-caption{display:none}.right{gap:9px}.block,.roadmap{padding:10px 14px}.task{font-size:clamp(19px,5.5vw,28px)}.status{margin-top:5px}.nextline{margin-top:8px;padding-top:7px}.countdown{margin-top:7px}}
 </style>
 </head>
-<body>
-<main>
-  <div class="brand">Exam HQ · Roadmap Clock</div>
-  <section aria-label="Current time in India">
-    <div class="clock">
-      <div class="group"><span class="digits" id="hours">12</span></div>
-      <span class="colon" aria-hidden="true">:</span>
-      <div class="group"><span class="digits" id="minutes">00</span></div>
-    </div>
-    <div class="lower"><span class="period" id="period">AM</span><span class="zone">India Standard Time · IST</span></div>
-  </section>
-  <section class="next" aria-live="polite">
-    <div class="kicker" id="kind">Coming up</div>
-    <div class="title" id="title">Loading the next milestone…</div>
-    <div class="detail" id="detail"></div>
+<body><main>
+<section class="clockside">
+  <div class="brand">Exam HQ · Schedule + Roadmap</div>
+  <div class="clock" aria-label="Live India time"><div class="group"><span class="digits" id="hours">12</span></div><span class="colon">:</span><div class="group"><span class="digits" id="minutes">00</span></div></div>
+  <div class="clockmeta"><span id="period" class="period">AM</span><span>India Standard Time</span></div>
+  <div class="date" id="date">Today</div><div class="clock-caption">Live clock · IST</div>
+</section>
+<section class="right">
+  <article class="block">
+    <div class="label">Your schedule · right now</div>
+    <div class="status"><span class="dot"></span><span id="status">Checking schedule</span></div>
+    <div class="task" id="task">Loading…</div>
+    <div class="taskdetail" id="taskdetail"></div>
+    <div class="nextline"><div><div class="nextlabel" id="nextlabel">Up next</div><div class="nexttask" id="nexttask">—</div></div><div class="nexttime" id="nexttime"></div></div>
+  </article>
+  <article class="roadmap">
+    <div class="roadtop"><div class="label">Closest roadmap milestone</div><div class="roadbadge" id="roadbadge">UP NEXT</div></div>
+    <div class="roadtitle" id="roadtitle">Loading…</div><div class="roaddetail" id="roaddetail"></div>
     <div class="countdown" id="countdown"></div>
-    <div class="foot">Next milestone from your 8 Nov 2026 – 31 May 2027 roadmap</div>
-  </section>
+  </article>
+</section>
 </main>
 <script>
 (function(){
-  var events=[
-    {at:"2026-11-08T00:00:00+05:30",kind:"Next roadmap phase",title:"Foundation & syllabus completion",detail:"Phase 1 begins · 8 November 2026"},
-    {at:"2027-01-01T00:00:00+05:30",kind:"Next roadmap phase",title:"Entrance sprint & board transition",detail:"Phase 2 begins · 1 January 2027"},
-    {at:"2027-01-20T00:00:00+05:30",kind:"Entrance exam",title:"JEE Main · Session 1",detail:"Official exam window · 20–24 and 28 January"},
-    {at:"2027-02-16T00:00:00+05:30",kind:"CBSE board exam",title:"Physics · Class XII",detail:"16 February 2027"},
-    {at:"2027-02-27T00:00:00+05:30",kind:"CBSE board exam",title:"Chemistry · Class XII",detail:"27 February 2027"},
-    {at:"2027-03-05T00:00:00+05:30",kind:"CBSE board exam",title:"English Core · Class XII",detail:"5 March 2027"},
-    {at:"2027-03-09T00:00:00+05:30",kind:"CBSE board exam",title:"Mathematics · Class XII",detail:"9 March 2027"},
-    {at:"2027-03-31T00:00:00+05:30",kind:"CBSE board exam",title:"Computer Science · Class XII",detail:"Final listed subject paper · 31 March 2027"},
-    {at:"2027-04-02T00:00:00+05:30",kind:"Entrance exam",title:"JEE Main · Session 2",detail:"Official exam window · 2–7 April 2027"},
-    {at:"2027-05-01T00:00:00+05:30",kind:"Next roadmap phase",title:"BITSAT & admissions follow-through",detail:"May phase begins · BITSAT 2027 dates are unconfirmed"},
-    {at:"2027-06-01T00:00:00+05:30",kind:"Roadmap finish",title:"Roadmap complete",detail:"31 May 2027"}
-  ];
-  var formatter=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Kolkata",hour:"2-digit",minute:"2-digit",hour12:true});
-  function pad(n){return String(n).padStart(2,"0")}
-  function draw(){
-    var now=new Date(),parts=formatter.formatToParts(now),hour="12",minute="00",period="AM";
-    parts.forEach(function(p){if(p.type==="hour")hour=p.value;if(p.type==="minute")minute=p.value;if(p.type==="dayPeriod")period=p.value.toUpperCase()});
-    document.getElementById("hours").textContent=hour;document.getElementById("minutes").textContent=minute;document.getElementById("period").textContent=period;
-    var next=null;for(var i=0;i<events.length;i++){if(new Date(events[i].at).getTime()>now.getTime()){next=events[i];break}}
-    var kind=document.getElementById("kind"),title=document.getElementById("title"),detail=document.getElementById("detail"),box=document.getElementById("countdown");
-    if(!next){kind.textContent="Roadmap complete";title.textContent="You made it to the finish.";detail.textContent="The roadmap ended on 31 May 2027.";box.innerHTML="";return}
-    kind.textContent=next.kind;title.textContent=next.title;detail.textContent=next.detail;
-    var sec=Math.max(0,Math.floor((new Date(next.at).getTime()-now.getTime())/1000)),days=Math.floor(sec/86400);sec%=86400;var hrs=Math.floor(sec/3600);sec%=3600;var mins=Math.floor(sec/60);sec%=60;
-    box.innerHTML='<div class="unit"><b>'+days+'</b><span>Days</span></div><div class="unit"><b>'+pad(hrs)+'</b><span>Hours</span></div><div class="unit"><b>'+pad(mins)+'</b><span>Minutes</span></div><div class="unit"><b>'+pad(sec)+'</b><span>Seconds</span></div>';
-  }
-  draw();setInterval(draw,1000);
+var weekday=[
+ {s:"05:30",e:"05:45",n:"Wake up & get ready",d:"Start the morning"},
+ {s:"05:45",e:"06:15",n:"Morning tuition test",d:""},
+ {s:"06:15",e:"07:00",n:"BITSAT practice",d:"Rotate Physics, Chemistry and Mathematics"},
+ {s:"07:00",e:"07:40",n:"Breakfast & get ready for school",d:""},
+ {s:"07:40",e:"08:00",n:"Travel to school",d:""},
+ {s:"08:00",e:"16:00",n:"School",d:"Includes lunch and breaks"},
+ {s:"16:00",e:"16:30",n:"Travel home & evening snack",d:""},
+ {s:"16:30",e:"17:00",n:"Rest & freshen up",d:""},
+ {s:"17:00",e:"18:00",n:"Regular tuition",d:""},
+ {s:"18:00",e:"18:40",n:"Board exam preparation",d:""},
+ {s:"18:40",e:"19:00",n:"Snack & get ready for Physics tuition",d:""},
+ {s:"19:00",e:"19:10",n:"Travel / get settled",d:""},
+ {s:"19:10",e:"21:00",n:"Physics tuition",d:"Monday, Tuesday and Friday"},
+ {s:"21:00",e:"21:30",n:"Dinner",d:""},
+ {s:"21:30",e:"21:45",n:"Relax & freshen up",d:""},
+ {s:"21:45",e:"22:30",n:"Pack school bag & prepare for tomorrow",d:""}
+];
+var midweek=[
+ {s:"05:30",e:"05:45",n:"Wake up & get ready",d:""},
+ {s:"05:45",e:"06:15",n:"Morning tuition test",d:""},
+ {s:"06:15",e:"07:00",n:"BITSAT practice",d:"Rotate Physics, Chemistry and Mathematics"},
+ {s:"07:00",e:"07:40",n:"Breakfast & get ready for school",d:""},
+ {s:"07:40",e:"08:00",n:"Travel to school",d:""},
+ {s:"08:00",e:"16:00",n:"School",d:"Includes lunch and breaks"},
+ {s:"16:00",e:"16:30",n:"Travel home & evening snack",d:""},
+ {s:"16:30",e:"17:00",n:"Rest & freshen up",d:""},
+ {s:"17:00",e:"18:00",n:"Regular tuition",d:""},
+ {s:"18:00",e:"19:15",n:"Board study",d:""},
+ {s:"19:15",e:"19:30",n:"Short break",d:""},
+ {s:"19:30",e:"20:10",n:"Homework, NCERT questions or revision",d:""},
+ {s:"20:10",e:"20:15",n:"Wash up / get dinner ready",d:""},
+ {s:"20:15",e:"20:45",n:"Dinner",d:""},
+ {s:"20:45",e:"21:00",n:"Clean up & relax",d:""},
+ {s:"21:00",e:"21:45",n:"Free time",d:""}
+];
+var weekend=[
+ {s:"05:30",e:"06:00",n:"Wake up, wash up & hydrate",d:""},
+ {s:"06:00",e:"07:30",n:"Deep board study",d:"Saturday: Physics · Sunday: Mathematics"},
+ {s:"07:30",e:"08:15",n:"Breakfast & get ready",d:""},
+ {s:"08:15",e:"09:15",n:"BITSAT MCQs",d:"Saturday: Chemistry · Sunday: mixed PCM"},
+ {s:"09:15",e:"09:45",n:"Break & snack",d:""},
+ {s:"09:45",e:"11:15",n:"Board prep",d:"NCERT, derivations and written answers"},
+ {s:"11:15",e:"12:00",n:"English or BITSAT English & Logical Reasoning",d:""},
+ {s:"12:00",e:"13:00",n:"Lunch & rest",d:""},
+ {s:"13:00",e:"14:30",n:"Board study",d:"Saturday: Mathematics · Sunday: Chemistry"},
+ {s:"14:30",e:"15:00",n:"Snack & break",d:""},
+ {s:"15:00",e:"16:00",n:"Correct mistakes & revise weak topics",d:""},
+ {s:"16:00",e:"17:30",n:"Free time, hobbies or rest",d:""},
+ {s:"17:30",e:"18:00",n:"Snack & get ready for tennis",d:""},
+ {s:"18:00",e:"19:20",n:"Travel buffer / relaxed time",d:""},
+ {s:"19:30",e:"20:30",n:"Tennis",d:""},
+ {s:"20:30",e:"21:00",n:"Travel home, shower & freshen up",d:""},
+ {s:"21:00",e:"21:45",n:"Dinner & relaxation",d:""},
+ {s:"21:45",e:"22:00",n:"Prepare for the next day",d:""},
+ {s:"22:00",e:"22:15",n:"Review progress & plan tomorrow",d:""},
+ {s:"22:15",e:"22:30",n:"Wind down for sleep",d:""}
+];
+var milestones=[
+ {at:"2026-11-08T00:00:00+05:30",kind:"PHASE 01",title:"Foundation & syllabus completion",detail:"Phase begins · 8 November 2026"},
+ {at:"2027-01-01T00:00:00+05:30",kind:"PHASE 02",title:"Entrance sprint & board transition",detail:"Phase begins · 1 January 2027"},
+ {at:"2027-01-20T00:00:00+05:30",kind:"JEE MAIN",title:"Session 1",detail:"Exam window · 20–24 and 28 January 2027"},
+ {at:"2027-02-16T00:00:00+05:30",kind:"CBSE BOARDS",title:"Physics · Class XII",detail:"16 February 2027"},
+ {at:"2027-02-27T00:00:00+05:30",kind:"CBSE BOARDS",title:"Chemistry · Class XII",detail:"27 February 2027"},
+ {at:"2027-03-05T00:00:00+05:30",kind:"CBSE BOARDS",title:"English Core · Class XII",detail:"5 March 2027"},
+ {at:"2027-03-09T00:00:00+05:30",kind:"CBSE BOARDS",title:"Mathematics · Class XII",detail:"9 March 2027"},
+ {at:"2027-03-31T00:00:00+05:30",kind:"CBSE BOARDS",title:"Computer Science · Class XII",detail:"Final listed subject paper · 31 March"},
+ {at:"2027-04-02T00:00:00+05:30",kind:"JEE MAIN",title:"Session 2",detail:"Exam window · 2–7 April 2027"},
+ {at:"2027-05-01T00:00:00+05:30",kind:"PHASE 05",title:"BITSAT & admissions follow-through",detail:"May phase · BITSAT 2027 exam dates unconfirmed"},
+ {at:"2027-06-01T00:00:00+05:30",kind:"ROADMAP END",title:"Roadmap complete",detail:"31 May 2027"}
+];
+var clockFmt=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Kolkata",hour:"2-digit",minute:"2-digit",hour12:true});
+var dateFmt=new Intl.DateTimeFormat("en-IN",{timeZone:"Asia/Kolkata",weekday:"long",day:"numeric",month:"long"});
+var weekFmt=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Kolkata",weekday:"short"});
+function p2(x){return String(x).padStart(2,"0")}
+function minutes(s){var q=s.split(":");return Number(q[0])*60+Number(q[1])}
+function tick(){
+ var now=new Date(),parts=clockFmt.formatToParts(now),h="12",m="00",period="AM";
+ parts.forEach(function(x){if(x.type==="hour")h=x.value;if(x.type==="minute")m=x.value;if(x.type==="dayPeriod")period=x.value.toUpperCase()});
+ document.getElementById("hours").textContent=h;document.getElementById("minutes").textContent=m;document.getElementById("period").textContent=period;document.getElementById("date").textContent=dateFmt.format(now);
+ var day=weekFmt.format(now),list=(day==="Sat"||day==="Sun")?weekend:(day==="Wed"||day==="Thu"?midweek:weekday),mins=Number(clockFmt.formatToParts(now).find(function(x){return x.type==="hour"}).value)%12,amp=period;mins=(Number(h)%12+(amp==="PM"?12:0))*60+Number(m);
+ if(day==="Wed")list[9].d="Wednesday: Mathematics";if(day==="Thu")list[9].d="Thursday: Chemistry";
+ var active=null,next=null;
+ for(var i=0;i<list.length;i++){if(mins>=minutes(list[i].s)&&mins<minutes(list[i].e)){active=list[i];next=list[i+1]||null;break}if(minutes(list[i].s)>mins&&!next)next=list[i]}
+ var status=document.getElementById("status");
+ if(active){status.textContent="Happening now";document.getElementById("task").textContent=active.n;document.getElementById("taskdetail").textContent=active.s+"–"+active.e+(active.d?" · "+active.d:"");}
+ else if(next){status.textContent="Between blocks · up next";document.getElementById("task").textContent=next.n;document.getElementById("taskdetail").textContent="Starts at "+next.s+(next.d?" · "+next.d:"");}
+ else{status.textContent="No more scheduled blocks";document.getElementById("task").textContent=mins>=22*60+30?"Wind down & sleep":"Free time";document.getElementById("taskdetail").textContent="Your planned schedule is complete for today."}
+ document.getElementById("nextlabel").textContent=active?"Up next":"Schedule status";
+ document.getElementById("nexttask").textContent=active&&next?next.n:(active?"No further block today":(next?"Next scheduled block":"End of today’s schedule"));
+ document.getElementById("nexttime").textContent=active&&next?next.s:(next?next.s:"");
+ var target=null;for(var j=0;j<milestones.length;j++){if(new Date(milestones[j].at).getTime()>now.getTime()){target=milestones[j];break}}
+ if(!target){document.getElementById("roadbadge").textContent="COMPLETE";document.getElementById("roadtitle").textContent="You reached the end.";document.getElementById("roaddetail").textContent="The roadmap ended 31 May 2027.";document.getElementById("countdown").innerHTML="";return}
+ document.getElementById("roadbadge").textContent=target.kind;document.getElementById("roadtitle").textContent=target.title;document.getElementById("roaddetail").textContent=target.detail;
+ var total=Math.max(0,Math.floor((new Date(target.at).getTime()-now.getTime())/1000)),days=Math.floor(total/86400);total%=86400;var hours=Math.floor(total/3600);total%=3600;var mins2=Math.floor(total/60);total%=60;
+ document.getElementById("countdown").innerHTML='<div class="unit"><b>'+days+'</b><span>Days</span></div><div class="unit"><b>'+p2(hours)+'</b><span>Hours</span></div><div class="unit"><b>'+p2(mins2)+'</b><span>Minutes</span></div><div class="unit"><b>'+p2(total)+'</b><span>Seconds</span></div>';
+}
+tick();setInterval(tick,1000);
 })();
-</script>
-</body>
-</html>
+</script></body></html>
 
